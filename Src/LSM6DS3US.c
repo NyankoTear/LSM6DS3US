@@ -52,4 +52,3 @@ void USER_SPIConfiguration(SPI_HandleTypeDef *hspi, uint32_t SPITimeOut)
   
   UserSPITimeOut = SPITimeOut;
 }
-
