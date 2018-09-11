@@ -584,7 +584,7 @@
   * @}
   */
 
-/** @defgroup	LSM6DS3US embedded functions registers description
+/** @defgroup	LSM6DS3US embedded functions registers definition
   * @{
   */
 #define SLV0_ADD                    0x02
@@ -749,6 +749,13 @@
   * @}
   */
  
-void USER_SPIConfiguration(SPI_HandleTypeDef *hspi, uint8_t SPITimeOut);
+/** @defgroup	Interface I/O configuration function definition
+  * @{
+  */
+void USER_I2CConfiguration(I2C_HandleTypeDef *hi2c, uint16_t DeviceAddress, uint32_t I2CTimeOut);
+void USER_SPIConfiguration(SPI_HandleTypeDef *hspi, uint32_t SPITimeOut);
+/**
+  * @}
+  */
 
 #endif /* __LSM6DS3US__ */
