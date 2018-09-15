@@ -25,7 +25,7 @@ SPI_HandleTypeDef Userhspi;
  */
 void USER_I2CConfiguration(I2C_HandleTypeDef *hi2c, uint16_t DeviceAddress, uint32_t I2CTimeOut)
 {
-  if(hspi == NULL){
+  if(hi2c == NULL){
     _Error_Handler("NullI2CHandleTypeDef", 0);
   } else{
     Userhi2c = *hi2c;
