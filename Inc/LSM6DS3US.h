@@ -31,31 +31,31 @@
 /** @defgroup	LSM6DS33 register address map definition
   * @{
   */
-#define FUNC_CFG_ACCESS   0x01
+#define FUNC_CFG_ACCESS         0x01
 #define SENSOR_SYNC_TIME_FRAME  0x04
-#define FIFO_CTRL1        0x06
-#define FIFO_CTRL2        0x07
-#define FIFO_CTRL3        0x08
-#define FIFO_CTRL4        0x09
-#define FIFO_CTRL5        0x0A
-#define ORIENT_CFG_G      0x0B
-#define INT1_CTRL         0x0D
-#define INT2_CTRL         0x0E
-#define WHO_AM_I          0x0F
-#define CTRL1_XL          0x10
-#define CTRL2_G           0x11
-#define CTRL3_C           0x12
-#define CTRL4_C           0x13
-#define CTRL5_C           0x14
-#define CTRL6_C           0x15
-#define CTRL7_G           0x16
-#define CTRL8_XL          0x17
-#define CTRL9_XL          0x18
-#define CTRL10_C          0x19
-#define MASTER_CONFIG     0x1A
-#define WAKE_UP_SRC       0x1B
-#define TAP_SRC           0x1C
-#define D6D_SRC           0x1D
+#define FIFO_CTRL1              0x06
+#define FIFO_CTRL2              0x07
+#define FIFO_CTRL3              0x08
+#define FIFO_CTRL4              0x09
+#define FIFO_CTRL5              0x0A
+#define ORIENT_CFG_G            0x0B
+#define INT1_CTRL               0x0D
+#define INT2_CTRL               0x0E
+#define WHO_AM_I                0x0F
+#define CTRL1_XL                0x10
+#define CTRL2_G                 0x11
+#define CTRL3_C                 0x12
+#define CTRL4_C                 0x13
+#define CTRL5_C                 0x14
+#define CTRL6_C                 0x15
+#define CTRL7_G                 0x16
+#define CTRL8_XL                0x17
+#define CTRL9_XL                0x18
+#define CTRL10_C                0x19
+#define MASTER_CONFIG           0x1A
+#define WAKE_UP_SRC             0x1B
+#define TAP_SRC                 0x1C
+#define D6D_SRC                 0x1D
 
 #if defined(USE_STATUS_REG)
   #define STATUS_REG        0x1E
