@@ -1,3 +1,6 @@
+#VSCode properties.json file
+.vscode/
+
 # Prerequisites
 *.d
 
