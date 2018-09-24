@@ -19,16 +19,24 @@
 #include "stm32l0xx_hal_spi.h"
 #include "stm32l0xx_hal_i2c.h"
 
+/**
+ * @brief  LSM6DS3US status structures definition
+ */
+typedef enum{
+  LSM6DS3US_OK  = 0x00U, 
+  LSM6DS3US_ERR = 0x01U
+} LSM6DS3US_StatusTypeDef;
+
 /** @defgroup	LSM6DS3US SPI CS(NSS) pin definition
   * @{
   */
 #define LSM6DS3US_NSS_LOW   HAL_GPIO_WritePin(LSM6DS3US_NSS_GPIO_Port, LSM6DS3US_NSS_Pin, GPIO_PIN_RESET)
-#define LSM6DS3US_NSS_HIGH  HAL_GPIO_WritePin(ELSM6DS3US_NSS_GPIO_Port, LSM6DS3US_NSS_Pin, GPIO_PIN_SET)
+#define LSM6DS3US_NSS_HIGH  HAL_GPIO_WritePin(LSM6DS3US_NSS_GPIO_Port, LSM6DS3US_NSS_Pin, GPIO_PIN_SET)
 /**
   * @}
   */
 
-/** @defgroup	LSM6DS33 register address map definition
+/** @defgroup	LSM6DS3US register address map definition
   * @{
   */
 #define FUNC_CFG_ACCESS         0x01
@@ -58,9 +66,9 @@
 #define D6D_SRC                 0x1D
 
 #if defined(USE_STATUS_REG)
-  #define STATUS_REG        0x1E
+  #define STATUS_REG      0x1E
 #else
-  #define STATUS_SPI_Aux    0x1E
+  #define STATUS_SPI_Aux  0x1E
 #endif
 
 #define OUT_TEMP_L        0x20
@@ -232,7 +240,7 @@
 /** @defgroup	LSM6DS3US WHO_AM_I register definition
   * @{
   */
-#define WHO_AM_I  0x69
+#define WHO_AM_I_ID  0x69
 /**
   * @}
   */
@@ -748,7 +756,7 @@
 /**
   * @}
   */
- 
+
 /** @defgroup	Interface I/O configuration function definition
   * @{
   */
@@ -757,5 +765,19 @@ void USER_SPIConfiguration(SPI_HandleTypeDef *hspi, uint32_t SPITimeOut);
 /**
   * @}
   */
+
+/**
+ * @defgroup Register control function definition
+ * @{
+ */
+HAL_StatusTypeDef USER_LSM6DS3US_ReadRegisterData(uint8_t RegisterAddress, uint8_t *pReceiveData, uint16_t ReceiveDataSize);
+HAL_StatusTypeDef USER_LSM6DS3US_WriteRegisterData(uint8_t RegisterAddress, uint8_t *pTransmitData, uint16_t TransmitDataSize);
+HAL_StatusTypeDef USER_LSM6DS3US_BitFieldSet(uint8_t RegisterAddress, uint8_t *pTransmitData, uint16_t TransmitDataSize);
+HAL_StatusTypeDef USER_LSM6DS3US_BitFieldClear(uint8_t RegisterAddress, uint8_t *pTransmitData, uint16_t TransmitDataSize);
+/**
+ * @}
+ */
+
+LSM6DS3US_StatusTypeDef USER_LSM6DS3US_CheckSensorID(void);
 
 #endif /* __LSM6DS3US__ */
